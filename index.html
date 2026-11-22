@@ -1,0 +1,621 @@
+[11/22/2026 9:29 PM] Mpee: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mpee Fast Food - Delicious, freshly prepared and affordable meals in Ghana. Order Jollof Rice, Waakye, Banku & Tilapia, and more.">
+
+    <title>Mpee Fast Food | Experience Great Taste</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 0;
+            background: #ffd700;
+            color: #4a0404;
+            padding: 10px 16px;
+            z-index: 200;
+            border-radius: 0 0 6px 0;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: #4a0404;
+            color: white;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        header h2 {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            font-size: 15px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #4a0404;
+            background-color: #ffd700;
+            outline: none;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            background-color: #fafaf9;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(30px, 5vw, 45px);
+            color: #4a0404;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #555555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4a0404;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: #800000;
+            outline: 2px solid #ffd700;
+            outline-offset: 2px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            width: 420px;
+            aspect-ratio: 7 / 5;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            background-color: #f0e6e6;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        /* SECTION HEADINGS */
+[11/22/2026 9:29 PM] Mpee: .features h2,
+        .menu h2,
+        .about h2 {
+            color: #4a0404;
+            font-size: clamp(26px, 4vw, 34px);
+            margin-bottom: 12px;
+        }
+
+        .section-intro,
+        .menu-intro {
+            color: #666666;
+            margin-bottom: 35px;
+        }
+
+        /* FEATURES SECTION */
+
+        .features {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-list li {
+            padding: 30px 22px;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            background-color: white;
+            transition: 0.3s;
+        }
+
+        .feature-list li:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-list h3 {
+            color: #4a0404;
+            margin-bottom: 12px;
+        }
+
+        .feature-list p {
+            color: #666666;
+        }
+
+        /* FOOD MENU SECTION */
+
+        .menu {
+            background-color: #fafaf9;
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .food-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .food-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+            background-color: #f0e6e6;
+        }
+
+        .food-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .food-info h3 {
+            color: #4a0404;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .food-info p {
+            color: #666666;
+            font-size: 14px;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .price {
+            color: #800000;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .order-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 16px;
+            background-color: #4a0404;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover,
+        .order-btn:focus {
+            background-color: #ffd700;
+            color: #4a0404;
+            outline: none;
+        }
+
+        /* ABOUT SECTION */
+
+        .about {
+            background-color: #ffffff;
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            color: #555555;
+        }
+
+        /* QUOTE SECTION */
+
+        .quote-section {
+            padding: 55px 8%;
+        }
+
+        blockquote {
+            max-width: 850px;
+            margin: auto;
+            padding: 25px;
+            border-left: 5px solid #4a0404;
+            font-size: clamp(18px, 3vw, 24px);
+            font-style: italic;
+            color: #4a0404;
+        }
+
+        /* CONTACT / FOOTER */
+
+        footer {
+            background-color: #4a0404;
+            color: white;
+            text-align: center;
+            padding: 40px 15px 30px;
+        }
+
+        footer p {
+            margin: 6px;
+            font-size: 14px;
+        }
+[11/22/2026 9:29 PM] Mpee: .footer-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            margin: 18px 0;
+            font-size: 15px;
+        }
+
+        .footer-contact a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover,
+        .footer-contact a:focus {
+            text-decoration: underline;
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background-color: #25D366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            z-index: 150;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover,
+        .whatsapp-float:focus {
+            transform: scale(1.1);
+            outline: 3px solid #ffd700;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 14px 6%;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 6px 9px;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 50px 6%;
+            }
+
+            .feature-list,
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                font-size: 24px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (min-width: 500px) and (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER -->
+
+    <header>
+        <h2>Mpee Fast Food</h2>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#features">Services</a>
+            <a href="#menu">Food Menu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- HERO SECTION -->
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Welcome to Mpee Fast Food</h1>
+                <p>
+                    Experience great taste with Mpee Fast Food.
+                    We are passionate about serving delicious,
+                    freshly prepared and affordable meals.
+                    Whether you need a quick lunch or a satisfying
+                    meal, we are here to make every bite enjoyable.
+                </p>
+                <a href="#menu" class="btn">Explore Our Menu</a>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+                    alt="Delicious food served at Mpee Fast Food"
+                    loading="eager">
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+
+        <section class="features" id="features">
+            <h2>Why Choose Mpee Fast Food?</h2>
+            <p class="section-intro">Discover what makes our food special.</p>
+
+            <ul class="feature-list">
+                <li>
+                    <h3>Delicious Meals</h3>
+                    <p>Enjoy tasty and satisfying meals prepared to give you a wonderful food experience.</p>
+[11/22/2026 9:29 PM] Mpee: </li>
+                <li>
+                    <h3>Fresh Ingredients</h3>
+                    <p>We value freshness and quality in preparing meals that you will enjoy.</p>
+                </li>
+                <li>
+                    <h3>Affordable Prices</h3>
+                    <p>Enjoy delicious meals at affordable prices without compromising on taste.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- FOOD MENU SECTION -->
+
+        <section class="menu" id="menu">
+            <h2>Our Food Menu</h2>
+            <p class="menu-intro">Explore our delicious meals at affordable prices.</p>
+
+            <div class="menu-container">
+
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800"
+                         alt="Jollof rice served with chicken" loading="lazy">
+                    <div class="food-info">
+                        <h3>Jollof Rice &amp; Chicken</h3>
+                        <p>Delicious rice served with tasty chicken.</p>
+                        <div class="price">GH₵65.00</div>
+                        <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20want%20to%20order%20Jollof%20Rice%20%26%20Chicken"
+                           class="order-btn" target="_blank" rel="noopener">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800"
+                         alt="Fried rice served with chicken" loading="lazy">
+                    <div class="food-info">
+                        <h3>Fried Rice &amp; Chicken</h3>
+                        <p>Tasty fried rice with well-prepared chicken.</p>
+                        <div class="price">GH₵60.00</div>
+                        <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20want%20to%20order%20Fried%20Rice%20%26%20Chicken"
+                           class="order-btn" target="_blank" rel="noopener">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=800"
+                         alt="Waakye special meal" loading="lazy">
+                    <div class="food-info">
+                        <h3>Waakye Special</h3>
+                        <p>A delicious local Ghanaian meal.</p>
+                        <div class="price">GH₵50.00</div>
+                        <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20want%20to%20order%20Waakye%20Special"
+                           class="order-btn" target="_blank" rel="noopener">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800"
+                         alt="Banku served with grilled tilapia" loading="lazy">
+                    <div class="food-info">
+                        <h3>Banku &amp; Tilapia</h3>
+                        <p>Banku served with grilled fish and pepper.</p>
+                        <div class="price">GH₵85.00</div>
+                        <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20want%20to%20order%20Banku%20%26%20Tilapia"
+                           class="order-btn" target="_blank" rel="noopener">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800"
+                         alt="Spicy fried ripe plantain (Kelewele)" loading="lazy">
+[11/22/2026 9:29 PM] Mpee: <div class="food-info">
+                        <h3>Kelewele</h3>
+                        <p>Spicy and delicious fried ripe plantain.</p>
+                        <div class="price">GH₵25.00</div>
+                        <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20want%20to%20order%20Kelewele"
+                           class="order-btn" target="_blank" rel="noopener">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
+                         alt="Chicken and chips meal" loading="lazy">
+                    <div class="food-info">
+                        <h3>Chicken &amp; Chips</h3>
+                        <p>Delicious chicken served with crispy chips.</p>
+                        <div class="price">GH₵55.00</div>
+                        <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20want%20to%20order%20Chicken%20%26%20Chips"
+                           class="order-btn" target="_blank" rel="noopener">Order Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+
+        <section class="about" id="about">
+            <h2>About Mpee Fast Food</h2>
+            <p>
+                Mpee Fast Food is committed to providing customers
+                with delicious meals, quality service and an enjoyable
+                dining experience. Our goal is to satisfy every customer
+                through great taste, freshness and affordability.
+            </p>
+        </section>
+
+        <!-- QUOTE SECTION -->
+
+        <section class="quote-section">
+            <blockquote>
+                "Experience great taste, every bite!
+                Good food brings people together and creates
+                unforgettable moments."
+            </blockquote>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / CONTACT -->
+
+    <footer id="contact">
+        <p><strong>Mpee Fast Food</strong></p>
+        <p>Delicious Meals. Great Taste. Happy Customers.</p>
+
+        <div class="footer-contact">
+            <span>📍 Accra, Ghana</span>
+            <span>📞 <a href="tel:+233556264157">0556 264 157</a></span>
+            <span>✉️ <a href="mailto:mensahprosper6264@gmail.com">mensahprosper6264@gmail.com</a></span>
+        </div>
+
+        <p>&copy; 2026 Mpee Fast Food. All Rights Reserved.</p>
+        <p>Designed as a student web development project.</p>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/233556264157?text=Hi%20Mpee%20Fast%20Food%2C%20I%20would%20like%20to%20place%20an%20order."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener"
+       aria-label="Order on WhatsApp">
+        💬
+    </a>
+
+</body>
+</html>
